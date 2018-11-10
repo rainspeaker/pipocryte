@@ -7,6 +7,11 @@
 {% else %}<meta name="keywords" content="brooklyn magazine, HOCD, Megan Boyle cultural criticism, queer theory, philosophy of law, jewish theology, critical theory, philosophy">
 {% endif %}
 {% endblock %}
+{% block description %}
+{% if article.description %}
+<meta name="description" content="{{ article.description }}">
+{% endif %}
+{% endblock %}
 {% block webtitle2 %}{{article.title}} | {{article.author.name}} | The Hypocrite Reader{% endblock %}
 {% block webtitle %}{{article.title}} | {{article.author.name}} | The Hypocrite Reader{% endblock %}
 {% block topofbody %}
@@ -27,7 +32,7 @@
 <center style="font-family: Verdana, Sans-serif; font-size: 12pt; color: black; padding:15px; border: thin #aaaaaa solid;">This article responds to {% if article.afterthoughts_issue %}Hypocrite Reader Issue {{article.afterthoughts_issue.issue_number}}, <a href="/{{article.afterthoughts_issue.issue_number}}">{{article.afterthoughts_issue.title}}</a>.{%else%}{{article.afterthoughts_article.author.name}}’s piece, <a href="/{{article.afterthoughts_article.issue.issue_number}}/{{article.afterthoughts_article.slug}}"><b>{{article.afterthoughts_article.title}}</b></a>.{% endif %}</center>
 {% endif %}
 {{article.rendered_content|safe}}
-<hr class="shorthr" /> 
+<hr class="shorthr" />
 </div>
 
 {% if article.hascomments %}
