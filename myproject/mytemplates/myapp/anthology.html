@@ -1,0 +1,33 @@
+{% extends "myapp/base.html" %}
+{% block title %}<h1>ANTHOLOGY</h1><hr class="shorthr" />{% endblock %}
+{% block url %}http://hypocritereader.com/anthology/{% endblock %}
+{% block webtitle %}Hypocrite Reader | Anthology{% endblock %}
+{% block topofbody %}
+<div id="fb-root"></div><script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endblock %}
+{% block content %}
+
+
+<br>
+<div id="article">
+
+{{issue.rendered_anthology|safe}}
+
+<div style="height: 35px;"></div>
+<div id="share">
+<div align="left">
+<div id="fb-root"></div>
+<div class="fb-like" data-href="http://hypocritereader.com/anthology/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+<div align="left" id="twitter-button">
+</div>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+</div>
+
+{% endblock %}

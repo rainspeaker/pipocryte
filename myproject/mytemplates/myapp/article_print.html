@@ -1,0 +1,37 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" href="/media/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+
+<meta content="Ellis Calvin" name="designed_by"> 
+    <meta content="Hypocrite Reader" name="copyright"> 
+    <meta content="general" name="rating"> 
+    <meta name="keywords" content="Hypocrite Reader"> 
+<meta name="keywords" content="brooklyn magazine, HOCD, Megan Boyle cultural criticism, queer theory, philosophy of law, jewish theology, critical theory, philosophy">
+<meta name="description" content="An online monthly, of essays conceptual and timely, based in Brooklyn, New York.">
+<meta http-equiv="content-language" content="en"> 
+<meta content="all, index, follow" name="robots">
+<title>{{article.title}} | {{article.author.name}} | The Hypocrite Reader</title>
+</head>
+
+<body>
+
+<h1>{{article.title}} | {{article.author.name}} | The Hypocrite Reader</h1>
+<hr class="longhr" />
+<article>
+<h3><a href="{{ article.author.get_absolute_url }}">{{article.author.name}}</a></h3>
+<h1>{{article.title}}</a></h1>
+<hr class="shorthr" />
+<h6><a href="{{ article.issue.get_absolute_url}}">ISSUE {{article.issue.issue_number}} | {{article.issue.title|upper}} | {{article.issue.publish_date|date:"M Y"|upper}}</a></h6>
+<div id="article">
+{% if article.afterthoughts %}
+{{afterthoughts_helptext|safe}}
+{% endif %}
+{{article.rendered_content|safe}}
+<hr class="shorthr" /> 
+</div>
+</article>
+<div id="footer"><p class="centered">Copyright © 2014 Hypocrite Reader. All Rights Reserved.</p></div>
+
+
+
+</body></html>

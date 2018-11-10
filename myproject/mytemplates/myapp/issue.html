@@ -1,0 +1,26 @@
+{% extends "myapp/base.html" %}
+{% block title %}<h3>ISSUE {{issue.issue_number}} | {{issue.publish_date|date:"M Y"|upper}}</h3>
+<h1>{{issue.title|upper}}</h1>{% endblock %}
+{% block webtitle %}Hypocrite Reader | Issue {{issue.issue_number}} | {{issue.title}}{% endblock %}
+{% block content %}
+
+<hr class="shorthr">
+{% for article in articles %}
+<h4 class="contentauthor">{% for author in article.authors.all %}<a href="{{ author.get_absolute_url }}">{{author.name}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</h4>
+<h3 class="article-title"><a href="{{article.get_absolute_url}}">{{article.title}}</a></h3>
+<p class="contenttag">
+{{article.description|safe}}
+</p>
+<p></p>
+{% endfor %}
+{% for afterthought in afterthoughts %}
+<h4 class="contentauthor"><a href="{{afterthought.author.get_absolute_url}}">{{afterthought.author.name}}</a></h4>
+<h3 class="article-title"><a href="{{afterthought.get_absolute_url}}">{{afterthought.title}}</a></h3>
+</a></h3>
+<p class="contenttag">
+</p>
+<p></p>
+{% endfor %}
+
+
+{% endblock %}

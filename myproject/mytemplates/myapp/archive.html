@@ -1,0 +1,14 @@
+﻿{% extends "myapp/base.html" %}
+{% block title %}<h1>ARCHIVE</h1><hr class="shorthr" />{% endblock %}
+{% block webtitle %}Hypocrite Reader | Archive{% endblock %}
+{% block content %}
+<br>
+<div id="article">
+
+{% for issue in issues %}
+<h6><a href="{{issue.get_absolute_url}}">ISSUE {{issue.issue_number}} | {{issue.title|upper}} | {{issue.publish_date|date:"M Y"|upper}}</a></h6>
+
+{% endfor %}
+
+</div>
+{% endblock %}

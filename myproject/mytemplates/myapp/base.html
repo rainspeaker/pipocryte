@@ -1,0 +1,67 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" href="/media/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+
+<meta content="Ellis Calvin" name="designed_by"> 
+    <meta content="Hypocrite Reader" name="copyright"> 
+    <meta content="general" name="rating"> 
+    <meta name="keywords" content="Hypocrite Reader"> 
+{% block keywords %}<meta name="keywords" content="brooklyn magazine, HOCD, Megan Boyle cultural criticism, queer theory, philosophy of law, jewish theology, critical theory, philosophy">{% endblock %}
+<meta name="description" content="An online monthly, of essays conceptual and timely, based in Brooklyn, New York.">
+<meta http-equiv="content-language" content="en"> 
+<meta content="all, index, follow" name="robots">
+
+<meta property="og:title" content="{% block webtitle2 %}Hypocrite Reader{% endblock %}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{% block url %}http://hypocritereader.com{% endblock %}" />
+<meta property="og:image" content="http://hypocritereader.com/media/hlogo.png" />
+<meta property="og:site_name" content="Hypocrite Reader" />
+<meta property="fb:admins" content="2907211,1092540420,22500503,100000014834909" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31104717-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-31104717-1');
+</script>
+
+<title>{% block webtitle %}{% endblock %}</title>
+<link href="/media/global.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+<meta name="google-site-verification" content="L7EUZ_fP5NYJBa8RTEskBHys7hnf6yY_I6rY_mVYppw" />
+
+</head>
+
+<body>
+{% block topofbody %} {% endblock %}
+<div id="wrapper">
+<div id="content">
+
+<div id="header">
+<a href="/"><img src="/media/hlogo.png" /></a>
+<hr class="longerhr"/>
+<ul>
+<li><a href="/about">ABOUT</a></li>
+<li><a href="/contribute">CONTRIBUTE</a></li>
+<li><a href="/archive">ARCHIVES</a></li>
+</ul>
+<hr class="longerhr" />
+</div>
+
+{% block title %}{% endblock %}
+{% block content %}
+{% endblock %}
+
+<div id="footer"><p class="centered">Copyright © 2018 Hypocrite Reader. All Rights Reserved.</p></div>
+
+
+</div>
+</div>
+
+
+
+</body></html>

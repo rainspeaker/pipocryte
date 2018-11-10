@@ -1,0 +1,29 @@
+{% extends "myapp/base.html" %}
+{% block title %}<h1>ANTHOLOGY</h1><hr class="shorthr" />{% endblock %}
+{% block webtitle %}Hypocrite Reader | Anthology{% endblock %}
+{% block content %}
+
+<br>
+<div id="article">
+
+{{issue.rendered_anthology|safe}}
+
+<div style="height: 35px;"></div>
+<div id="share">
+<div align="left">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-share-button" data-href="http://www.hypocritereader.com/anthology" data-type="button"></div>
+<div align="left" id="twitter-button">
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+</div>
+</div>
+
+{% endblock %}

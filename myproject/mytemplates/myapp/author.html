@@ -1,0 +1,37 @@
+﻿{% extends "myapp/base.html" %}
+{% block title %}<h1>{{author.name}}</h1>
+{% endblock %}
+{% block webtitle %}{{author.name}} | Hypocrite Reader{% endblock %}
+{% block content %}
+
+{% if author.page_url or author.twitter_name %}<ul>{%if author.page_url%}<li><a href="{{author.page_url}}">{% if author.page_name%}{{author.page_name}}{%else%}{{author.page_url}}{%endif%}</a></li>{%endif%}{%if author.twitter_name%}<li><a href="http://www.twitter.com/#!/{{author.twitter_name}}">{{author.twitter_name}} (Twitter)</a></li>{%endif%}</ul>{%endif%}
+
+<p>{{author.bio}}</p>
+
+{% if articles %}<hr class="longhr" /> 
+<h3>Articles by {{author.name}}:</h3><br>
+{% for article in articles %}
+<center><h3 class="article-title"><a href="/{{article.issue.issue_number}}/{{article.slug}}">{{article.title}}</a></h3> in <a href="/{{article.issue.issue_number}}">Issue {{article.issue.issue_number}} | {{article.issue.title}} ({{article.issue.publish_date|date:"M Y"}})</a>
+<p class="contenttag">
+{{article.description|safe}}
+</p></center>
+<p></p>
+{% endfor %}
+{% endif %}
+
+
+
+{% if articles_illustrated %}
+<!--  -->
+
+<h3>Articles illustrated by {{author.name}}:</h3><br>
+{% for article in articles_illustrated %}
+<center><h3 class="article-title"><a href="/{{article.issue.issue_number}}/{{article.slug}}">{{article.title}}</a></h3> in <a href="/{{article.issue.issue_number}}">Issue {{article.issue.issue_number}} | {{article.issue.title}} ({{article.issue.publish_date|date:"M Y"}})</a>
+<p class="contenttag">
+{{article.description|safe}}
+</p></center>
+<p></p>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

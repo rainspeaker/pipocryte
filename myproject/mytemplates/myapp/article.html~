@@ -1,0 +1,39 @@
+{% extends "myapp/base.html" %}
+{% block title %}{% endblock %}
+{% block url %}http://hypocritereader.com{{ article.get_absolute_url}}{% endblock %}
+{% block keywords %}
+{% if article.search_keywords %}
+<meta name="keywords" content="{{article.search_keywords}}">
+{% else %}<meta name="keywords" content="brooklyn magazine, HOCD, Megan Boyle cultural criticism, queer theory, philosophy of law, jewish theology, critical theory, philosophy">
+{% endif %}
+{% endblock %}
+{% block webtitle2 %}{{article.title}} | {{article.author.name}} | The Hypocrite Reader{% endblock %}
+{% block webtitle %}{{article.title}} | {{article.author.name}} | The Hypocrite Reader{% endblock %}
+{% block content %}
+<article>
+<h3>{% for author in article.authors.all %}<a href="{{ author.get_absolute_url }}">{{author.name}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</h3>
+<h1>{{article.title}}</a></h1>
+<hr class="shorthr" />
+<h6><a href="{{ article.issue.get_absolute_url}}">ISSUE {{article.issue.issue_number}} | {{article.issue.title|upper}} | {{article.issue.publish_date|date:"M Y"|upper}}</a></h6>
+<center><a href="{{article.get_absolute_url}}/print"><img src="/media/images/print.png" width=20px></a><a href="http://feeds.feedburner.com/HypocriteReader"><img src="/media/images/feed.png" width=20px></a></center>
+<div id="article"><br>
+{% if afterthoughts_for %}
+<center style="font-family: Verdana, Sans-serif; font-size: 12pt; color: black; padding:15px; border: thin #aaaaaa solid;">Read afterthoughts to this piece from {% for afterthought in afterthoughts_for %}{%if not forloop.first and not forloop.last%},{%endif%}{% if forloop.last and not forloop.first %} and{%endif%} <a href="/{{afterthought.issue.issue_number}}/{{afterthought.slug}}"><b>{{afterthought.author.name}}</b></a>{%endfor%}</a>.</center>
+{% endif %}
+{% if article.afterthoughts %}
+<center style="font-family: Verdana, Sans-serif; font-size: 12pt; color: black; padding:15px; border: thin #aaaaaa solid;">This article responds to {% if article.afterthoughts_issue %}Hypocrite Reader Issue {{article.afterthoughts_issue.issue_number}}, <a href="/{{article.afterthoughts_issue.issue_number}}">{{article.afterthoughts_issue.title}}</a>.{%else%}{{article.afterthoughts_article.author.name}}’s piece, <a href="/{{article.afterthoughts_article.issue.issue_number}}/{{article.afterthoughts_article.slug}}"><b>{{article.afterthoughts_article.title}}</b></a>.{% endif %}</center>
+{% endif %}
+{{article.rendered_content|safe}}
+<hr class="shorthr" /> 
+</div>
+</article>
+<div style="height: 35px;"></div>
+<div id="share">
+<div id="fb-button">
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=200938856621566&amp;xfbml=1"></script><fb:like href="" send="false" width="450" show_faces="false" font=""></fb:like>
+</div>
+<div id="twitter-button">
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+</div>
+{% endblock %}
