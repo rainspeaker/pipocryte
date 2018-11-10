@@ -86,10 +86,13 @@ class Article(models.Model):
     rendered_content = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     search_keywords = models.TextField(blank=True,null=True)
+    canonical_image = models.CharField(max_length=500, blank=True)
+
 
     creation_date = models.DateTimeField(default=datetime.now)
     published = models.BooleanField(default=False)
     hascomments = models.BooleanField(default=True)
+
 
     def __unicode__(self):
         return self.title

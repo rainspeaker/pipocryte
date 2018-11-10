@@ -12,6 +12,7 @@
 <meta name="description" content="{{ article.description }}">
 {% endif %}
 {% endblock %}
+{% block og_image %}{% if article.canonical_image %}article.canonical_image{% else %}{{ block.super }}{% endif %}{% endblock %}
 {% block webtitle2 %}{{article.title}} | {{article.author.name}} | The Hypocrite Reader{% endblock %}
 {% block webtitle %}{{article.title}} | {{article.author.name}} | The Hypocrite Reader{% endblock %}
 {% block topofbody %}
